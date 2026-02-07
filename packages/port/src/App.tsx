@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'preact/compat';
+import { useEffect, useState } from 'preact/compat';
 import { Board } from './components/Board';
 import { Header } from './components/Header';
 import { GameOverlay } from './components/GameOverlay';
