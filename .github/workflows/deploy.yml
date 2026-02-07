@@ -1,0 +1,55 @@
+name: Deploy Preact MonoRepo to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Port package
+        run: npm run build -w packages/port
+
+      - name: Build Native package
+        run: npm run build -w packages/native
+
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p final_dist/port
+          mkdir -p final_dist/native
+          cp -r packages/port/dist/* final_dist/port/
+          cp -r packages/native/dist/* final_dist/native/
+          # Simple landing page
+          echo '<!DOCTYPE html><html><body><h1>Tile Merge Game (Preact)</h1><ul><li><a href="./port/">Port version</a></li><li><a href="./native/">Native version (Signals)</a></li></ul></body></html>' > final_dist/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './final_dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

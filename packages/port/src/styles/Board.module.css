@@ -1,0 +1,43 @@
+.boardContainer {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    /* 正方形を維持 */
+    background: #bbada0;
+    border-radius: 6px;
+    user-select: none;
+    touch-action: none;
+}
+
+.gridContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: var(--gap);
+}
+
+.gridCell {
+    background: rgba(238, 228, 218, 0.35);
+    border-radius: 3px;
+}
+
+.tileContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--gap);
+}
+
+@media (max-width: 520px) {
+    .boardContainer {
+        border-radius: 4px;
+    }
+}

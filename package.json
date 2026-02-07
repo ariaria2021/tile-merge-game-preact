@@ -1,0 +1,12 @@
+{
+    "name": "tile-merge-game-preact-monorepo",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "dev:port": "npm run dev -w packages/port",
+        "dev:native": "npm run dev -w packages/native",
+        "build": "npm run build -w packages/port && npm run build -w packages/native"
+    }
+}
