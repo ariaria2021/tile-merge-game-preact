@@ -8,7 +8,7 @@ export const Board = () => {
     const tiles = grid.value.flat().filter(cell => cell !== null);
 
     return (
-        <div className={styles.boardContainer} style={{ '--gap': '15px' }}>
+        <div className={styles.boardContainer}>
             <div className={styles.gridContainer}>
                 {Array.from({ length: 16 }).map((_, i) => (
                     <div key={i} className={styles.gridCell} />

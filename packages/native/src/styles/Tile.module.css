@@ -3,75 +3,76 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #eee4da;
-    color: #776e65;
-    font-weight: bold;
-    font-size: 35px;
-    border-radius: 3px;
-    transition: top 100ms ease-in-out, left 100ms ease-in-out, transform 100ms ease-in-out;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    font-weight: 700;
+    font-size: 48px;
+    border-radius: 4px;
+    transition: top 150ms ease-in-out, left 150ms ease-in-out;
     z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Number colors (Purple Scale) */
 .tile2 {
-    background: #eee4da;
+    background-color: #ffffff;
+    color: #4b5563;
 }
 
 .tile4 {
-    background: #ede0c8;
+    background-color: #f3f4f6;
+    color: #4b5563;
 }
 
 .tile8 {
-    color: #f9f6f2;
-    background: #f2b179;
+    background-color: #e9d5ff;
+    color: #6b21a8;
 }
 
 .tile16 {
-    color: #f9f6f2;
-    background: #f59563;
+    background-color: #d8b4fe;
+    color: #6b21a8;
 }
 
 .tile32 {
-    color: #f9f6f2;
-    background: #f67c5f;
+    background-color: #c084fc;
+    color: #ffffff;
 }
 
 .tile64 {
-    color: #f9f6f2;
-    background: #f65e3b;
+    background-color: #a855f7;
+    color: #ffffff;
 }
 
 .tile128 {
-    color: #f9f6f2;
-    background: #edcf72;
-    font-size: 30px;
+    background-color: #9333ea;
+    color: #ffffff;
+    font-size: 40px;
 }
 
 .tile256 {
-    color: #f9f6f2;
-    background: #edcc61;
-    font-size: 30px;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+    background-color: #7e22ce;
+    color: #ffffff;
+    font-size: 40px;
 }
 
 .tile512 {
-    color: #f9f6f2;
-    background: #edc850;
-    font-size: 30px;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+    background-color: #6b21a8;
+    color: #ffffff;
+    font-size: 40px;
 }
 
 .tile1024 {
-    color: #f9f6f2;
-    background: #edc53f;
-    font-size: 22px;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+    background-color: #581c87;
+    color: #ffffff;
+    font-size: 36px;
 }
 
 .tile2048 {
-    color: #f9f6f2;
-    background: #edc22e;
-    font-size: 22px;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+    background-color: #3b0764;
+    color: #ffffff;
+    font-size: 36px;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
 @keyframes appear {
@@ -87,8 +88,7 @@
 }
 
 .newTile {
-    animation: appear 200ms ease 100ms;
-    animation-fill-mode: backwards;
+    animation: appear 200ms ease;
 }
 
 @keyframes pop {
@@ -97,7 +97,7 @@
     }
 
     50% {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
     100% {
@@ -112,17 +112,17 @@
 
 @media (max-width: 520px) {
     .tile {
-        font-size: 25px;
+        font-size: 32px;
     }
 
     .tile128,
     .tile256,
     .tile512 {
-        font-size: 20px;
+        font-size: 28px;
     }
 
     .tile1024,
     .tile2048 {
-        font-size: 16px;
+        font-size: 22px;
     }
 }

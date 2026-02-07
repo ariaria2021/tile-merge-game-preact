@@ -1,11 +1,13 @@
 .boardContainer {
+    --gap: 15px;
     position: relative;
     width: 100%;
     padding-top: 100%;
-    background: #bbada0;
-    border-radius: 6px;
+    background: #e5e7eb;
+    border-radius: 8px;
     user-select: none;
     touch-action: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .gridContainer {
@@ -22,21 +24,23 @@
 }
 
 .gridCell {
-    background: rgba(238, 228, 218, 0.35);
-    border-radius: 3px;
+    background: #d1d5db;
+    border-radius: 4px;
 }
 
 .tileContainer {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: var(--gap);
+    top: var(--gap);
+    left: var(--gap);
+    right: var(--gap);
+    bottom: var(--gap);
+    pointer-events: none;
+    z-index: 2;
 }
 
 @media (max-width: 520px) {
     .boardContainer {
-        border-radius: 4px;
+        --gap: 10px;
+        border-radius: 6px;
     }
 }
