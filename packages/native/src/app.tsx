@@ -78,7 +78,7 @@ export function App() {
       </div>
 
       <p style={{ textAlign: 'center', marginTop: '20px', color: '#776e65' }}>
-        Use <strong>arrow keys</strong> or <strong>swipe</strong> to join the tiles! (Signals Native)
+        Use <strong>arrow keys</strong> or <strong>swipe</strong> to join the tiles!
       </p>
     </div>
   );

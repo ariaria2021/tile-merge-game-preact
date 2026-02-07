@@ -18,7 +18,7 @@ export const Header = () => {
                 color: '#1f2937',
                 margin: 0,
                 letterSpacing: '-0.025em'
-            }}>2048 (Native)</h1>
+            }}>2048</h1>
 
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <div style={{
