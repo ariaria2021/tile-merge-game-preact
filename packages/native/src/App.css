@@ -17,4 +17,9 @@ body {
   padding: 20px 15px;
   box-sizing: border-box;
   touch-action: none;
+  /* iOSでのスクロール防止 */
+}
+
+button:focus {
+  outline: none;
 }

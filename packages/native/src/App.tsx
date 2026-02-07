@@ -3,9 +3,9 @@ import { Board } from './components/Board';
 import { Header } from './components/Header';
 import { GameOverlay } from './components/GameOverlay';
 import { move, finished } from './state/gameState';
-import './app.css';
+import './App.css';
 
-export function App() {
+function App() {
   // キーボード操作の登録
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -50,7 +50,7 @@ export function App() {
 
     const diffX = touchEndX - touchStart.x;
     const diffY = touchEndY - touchStart.y;
-    const threshold = 30;
+    const threshold = 30; // 最小スワイプ距離
 
     if (Math.abs(diffX) > Math.abs(diffY)) {
       if (Math.abs(diffX) > threshold) {
@@ -83,3 +83,5 @@ export function App() {
     </div>
   );
 }
+
+export default App;
