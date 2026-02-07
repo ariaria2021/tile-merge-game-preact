@@ -1,9 +1,11 @@
+import React from 'preact/compat';
+
 type Props = {
     score: number;
     onReset: () => void;
 };
 
-export const Header = ({ score, onReset }: Props) => {
+export const Header: React.FC<Props> = ({ score, onReset }) => {
     return (
         <div style={{
             display: 'flex',

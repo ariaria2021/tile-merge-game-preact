@@ -47,6 +47,9 @@ export const processRow = (row: (Cell | null)[]): { newRow: (Cell | null)[], sco
             const doubledValue = current.value * 2;
             score += doubledValue;
 
+            // 新しいセルを作成（IDは新しくするが、アニメーション用に旧セル情報を保持したい場合はここで工夫が必要）
+            // 今回は簡易実装として、mergedFromなどは省略し、新しいセルとして扱う
+            // 本格的なアニメーションにはID管理が重要だが、まずはロジック優先
             mergedCells.push({
                 ...current,
                 id: Math.random().toString(36).substr(2, 9), // 新しいID
@@ -57,6 +60,7 @@ export const processRow = (row: (Cell | null)[]): { newRow: (Cell | null)[], sco
             skip = true;
         } else {
             // マージなし
+            // 状態リセット（isNewなどを消す）
             mergedCells.push({
                 ...current,
                 mergedFrom: undefined,

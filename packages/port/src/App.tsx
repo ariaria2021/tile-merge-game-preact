@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'preact/hooks';
+import React, { useEffect, useState } from 'preact/compat';
 import { Board } from './components/Board';
 import { Header } from './components/Header';
 import { GameOverlay } from './components/GameOverlay';
 import { useGrid } from './hooks/useGrid';
 import { isGameOver } from './utils/gridUtils';
-import './app.css';
+import './App.css';
 
-export function App() {
+function App() {
   const { grid, move, resetGrid } = useGrid();
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
@@ -21,7 +21,7 @@ export function App() {
     }
   }, [grid]);
 
-  // スコア更新処理
+  // スコア更新処理（共通化）
   const updateScore = (addedScore: number) => {
     if (addedScore > 0) {
       setScore(s => {
@@ -76,12 +76,15 @@ export function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [move, finished, bestScore]);
+  }, [move, finished, bestScore]); // updateScoreは依存に含めたいが、関数内でstate使うのでbestScoreへのアクセス注意。今回はsetterのcallback内で処理してるのでOK。
 
-  // タッチ操作
+  // タッチ操作（簡易実装）
+  // TODO: 本格的なスワイプ検知にはライブラリを使うと良いが、
+  // ここではネイティブイベントで実装
   const [touchStart, setTouchStart] = useState<{ x: number, y: number } | null>(null);
 
   const handleTouchStart = (e: TouchEvent) => {
+    // any for React.TouchEvent vs TouchEvent difference in Preact/Compat
     setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
   };
 
@@ -93,7 +96,7 @@ export function App() {
 
     const diffX = touchEndX - touchStart.x;
     const diffY = touchEndY - touchStart.y;
-    const threshold = 30;
+    const threshold = 30; // 最小スワイプ距離
 
     if (Math.abs(diffX) > Math.abs(diffY)) {
       if (Math.abs(diffX) > threshold) {
@@ -129,3 +132,4 @@ export function App() {
   );
 }
 
+export default App;

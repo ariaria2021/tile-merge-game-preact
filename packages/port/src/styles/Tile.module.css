@@ -1,5 +1,7 @@
+/* Tile.module.css */
 .tile {
     position: absolute;
+    /* width, height, positionはコンポーネントのstyle属性で制御 */
     background-color: #f3f4f6;
     border-radius: 4px;
     font-weight: 700;
@@ -13,6 +15,7 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* 数字ごとの色設定 (Purple Scale) */
 .tile2 {
     background-color: #ffffff;
     color: #4b5563;
@@ -28,45 +31,53 @@
     color: #6b21a8;
 }
 
+/* Purple 200 */
 .tile16 {
     background-color: #d8b4fe;
     color: #6b21a8;
 }
 
+/* Purple 300 */
 .tile32 {
     background-color: #c084fc;
     color: #ffffff;
 }
 
+/* Purple 400 */
 .tile64 {
     background-color: #a855f7;
     color: #ffffff;
 }
 
+/* Purple 500 */
 .tile128 {
     background-color: #9333ea;
     color: #ffffff;
     font-size: 40px;
 }
 
+/* Purple 600 */
 .tile256 {
     background-color: #7e22ce;
     color: #ffffff;
     font-size: 40px;
 }
 
+/* Purple 700 */
 .tile512 {
     background-color: #6b21a8;
     color: #ffffff;
     font-size: 40px;
 }
 
+/* Purple 800 */
 .tile1024 {
     background-color: #581c87;
     color: #ffffff;
     font-size: 36px;
 }
 
+/* Purple 900 */
 .tile2048 {
     background-color: #3b0764;
     color: #ffffff;
@@ -74,10 +85,12 @@
     box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
+/* 新規タイル出現アニメーション */
 .newTile {
     animation: appear 200ms ease;
 }
 
+/* マージアニメーション */
 .mergedTile {
     animation: pop 200ms ease;
 }

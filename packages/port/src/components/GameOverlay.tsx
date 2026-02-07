@@ -1,9 +1,11 @@
+import React from 'preact/compat';
+
 type Props = {
     isGameOver: boolean;
     onRetry: () => void;
 };
 
-export const GameOverlay = ({ isGameOver, onRetry }: Props) => {
+export const GameOverlay: React.FC<Props> = ({ isGameOver, onRetry }) => {
     if (!isGameOver) return null;
 
     return (
